@@ -1,0 +1,39 @@
+body{
+    background-color: #4a4f80 ;
+}
+
+td, th{
+    border: solid black 1px;
+    padding: 15px
+}
+table{
+    border-collapse: collapse;
+    align-items: center;
+    margin-bottom: 20px;
+}
+th{
+    background-color: black;
+    color: #4a4f80 ;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+h1{
+    font-family: 'Alfa Slab One', cursive;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;   
+}
+
+#logout{
+    color: black;
+    border-top-left-radius: 2em 0.5em;
+    border-top-right-radius: 1em 3em;
+    border-bottom-right-radius: 4em 0.5em;
+    border-bottom-left-radius: 1em 3em;
+    background-color: white;
+}

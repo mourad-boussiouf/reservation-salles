@@ -1,0 +1,44 @@
+body{
+    background-color: #ffcc29;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+#logout{
+    color: black;
+    border-top-left-radius: 2em 0.5em;
+    border-top-right-radius: 1em 3em;
+    border-bottom-right-radius: 4em 0.5em;
+    border-bottom-left-radius: 1em 3em;
+    background-color: white;
+}
+
+main{
+    min-height: 70vh;
+}
+
+#booking{
+    display: flex;
+    justify-content: space-around;
+    height: 20vh;
+}
+
+#booking p{
+    font-family: 'Arimo', sans-serif;
+}
+
+.Pbooking{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arimo', sans-serif;
+}
+
+.Pbooking p{
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: bold;
+}

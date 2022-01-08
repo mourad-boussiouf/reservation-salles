@@ -1,0 +1,399 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    }
+    
+    .messagegreen {
+    background-color: green;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    }
+    
+    .messagered {
+    background-color: red;
+    font-size: 20px;
+    color: yellow;
+    display: flex; 
+    justify-content: center;
+    }
+    
+    #message {
+        text-align: center;
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:100;
+        color: white;
+        font-size: 1.7em;
+    }
+    
+    /* Style de la barre de connexion */
+    .topnav {
+        background-color: rgb(143, 64, 64);
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .topnav #menuprofil {
+        display: none;
+      }
+      
+      .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      
+      .active {
+        background-color: rgb(255, 0, 64);
+        color: white;
+      }
+    
+      .topnav #modifyprofilmenu {
+        display: none;
+      }
+    
+    /* header style */
+    
+    .headermenu {
+    
+      margin-left: -400px;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: rgb(255, 0, 64);
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+      z-index: 20;
+    }
+    
+    .headermenu a {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    height: 65px;
+    width: 140px;
+    line-height: 65px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0.5px 0.5px 1px rgb(133, 133, 133);
+    border-radius: 1.8px;
+    }
+    
+    .headermenu a:hover {
+    background-color: white;
+    color: red;
+    }
+    
+    .linksmenu {
+      text-align: center;
+      padding: 2px;
+    }
+    
+    .indexbanner {
+      background: url("image/ouiouiamis2.jpg");
+      height: 925px;
+      text-shadow: 1px 1px 2px rgba(71, 71, 71, 0.774);
+    }
+    
+    .index1 {
+      padding-top: 19px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .index2 {
+      text-decoration: none;
+      font-size: 32px;
+      padding-top: 65px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .index2 a {
+      text-decoration: none;
+      background-color: white;
+      border-radius: 10px;
+      color: black;
+      width: 390px;
+    }
+    
+    .index2 a:hover {
+      background-color: black;
+      color: white;
+    }
+    
+    .logintitle{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+    padding-top: 30px;  
+    }
+    
+    .loginform {
+    padding-right: 72px;
+    padding-top: 75px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    }
+    
+    .loginform a {
+    text-decoration: none;
+    color: rgba(207, 0, 0, 0.897);
+    }
+    
+    .loginform a:hover {
+    text-decoration-line: underline;
+    }
+    
+    .loginform input {
+      width: 150%;
+      height: 36px;
+      background-color: rgba(255, 0, 0, 0.267);
+       }
+    
+    .connectbutton {
+     padding-top: 27px;  
+     }
+    
+     .connectbutton input {
+      background-color: rgba(255, 22, 22, 0.733);
+    }
+     
+    /* formulaire inscription*/
+    
+    .registertitle {
+     display: flex;
+     justify-content: center;
+     font-size: 30px;
+     font-weight: 600;
+     padding-top: 30px;
+    }
+    
+    .registerform {
+    margin-right: -9.5px;
+    padding-top: 75px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    }
+    
+    .alreadyregister {
+    display: flex;  
+    justify-content: center;
+    font-size: 20px;
+    margin-left:75px;
+    
+    }
+    
+    .alreadyregister a {
+    text-decoration: none;
+    color: rgba(207, 0, 0, 0.897);
+    }
+    
+    .alreadyregister a:hover {
+    text-decoration-line: underline;
+    }
+           
+    .registerform input {
+    width: 100%;
+    height: 36px;
+    background-color: rgba(255, 0, 0, 0.267);
+    }
+    
+    .registerbutton {
+      padding-top: 27px;  
+      }
+         
+    .registerbutton input {
+      background-color: rgba(255, 22, 22, 0.733);
+      }
+    
+     /*commentaires livre d'or */
+    
+    .infocomm {
+    display: flex;
+    justify-content: center;
+    }
+    
+    .infocomm p {
+    border-style: solid;
+    }
+    
+    .contentcomm {
+    display: flex;
+    justify-content: center; 
+    font-family: cursive;
+    }
+    
+    .clear{
+    clear: both; 
+    height: 25px; 
+    }
+    
+    .livreorbutton a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    padding-top: 75px;
+    color: rgb(148, 0, 0);;
+    }
+    
+    .livreorbutton img {
+      position: relative;
+      top: 60px; left: 50px;
+      top: -52px;
+      left: 16px;
+    }
+    
+    /*page modification profil */
+    
+    .profiltitle{
+    font-size: 18px;
+    display: flex; 
+    justify-content: center;
+    }
+    
+    .modifylogin{
+    display: flex;
+    justify-content: center;
+    }
+    
+    .modifypassword{
+      display: flex;
+      justify-content: center;
+      }
+    
+    .modifylogin input {
+        width: 100%;
+        height: 36px;
+        background-color: rgba(255, 0, 0, 0.267);
+        }
+        
+    .modifypassword input  {
+          width: 100%;
+          height: 36px;
+          background-color: rgba(255, 0, 0, 0.267);
+          }
+          
+      
+    
+    
+      .modifypasswordbutton input {
+        background-color: rgba(255, 22, 22, 0.733);
+        }
+    
+        .modifyloginbutton input {
+          background-color: rgba(255, 22, 22, 0.733);
+          }
+    .modifypasswordbutton {
+    padding-top: 18px;
+    }
+    
+    .modifyloginbutton {
+      padding-top: 17px;
+      }
+    
+    
+    .modifyform {
+    padding-top: 20px;
+    }
+        
+      
+    /*page envoi de commentaire livre d'or */
+    .postcomment {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    }
+    
+    .commentbox input{
+      width: 430px;
+      height: 110px;
+      background-color: rgba(255, 0, 0, 0.267);
+    }
+    
+    .commentbutton {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    }
+    
+    .commentbutton input {
+    width: 250px;
+    background-color: rgba(255, 22, 22, 0.733);
+    }
+    
+    /* style du footer */
+    footer{
+      position:fixed;
+      bottom:0;
+      width:100%;
+      height:24px;  
+      background:rgba(255, 22, 22, 0.733);
+      color: white;
+      font-size: 18px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
+    
+    footer a:link  {
+    text-decoration: none;
+    
+    }
+    
+    footer a:visited {
+    text-decoration: none;
+    color: white;
+    }
+    
+    footer a:hover {
+    background-color: white;
+    color: rgba(255, 22, 22, 0.973);
+    height: 80px;
+    }
+    
+    footer a {
+    margin-bottom: 2px;
+    height: 200px;
+    }
+    
+    .footerlivreor{
+    display: flex;
+    justify-content: center;
+    }
+
+
+     /*page planning*/
+
+    table {
+      border-collapse: collapse;
+      background: white;
+      color: black;
+  }
+  th, td { 
+      font-weight: bold;
+  }
+
