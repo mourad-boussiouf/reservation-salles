@@ -33,7 +33,7 @@ public function __construct(?int $day = null, ?int $month = null, ?int $year = n
     //check si c'est lundi
     if($this->currentDay === 1){
         $this->mondayDate = $day;
-        $this->currentIsMonday = TRUE;
+        $this->currentIsMonday = TRUE; 
     }
     else {
         $getMondayDate = $makeDate->modify('last monday');

@@ -62,18 +62,24 @@ class Creneaux {
         return $length->h;
     }
     public function getEventById(int $id): array {
+        
         $sql = "SELECT reservations.id, reservations.titre, reservations.description, reservations.debut, reservations.fin, utilisateurs.login
             FROM reservations JOIN utilisateurs
             ON utilisateurs.id = reservations.id_utilisateur
-            WHERE reservations.id = :id";
+            WHERE reservations.id = $id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([':id'=>$id]);
+        
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($results);
+       
 
+
+        
         return $results;
     
     }
     public function Validateform($title, $date, $start, $end, $text){}
+
+
 }
 ?>

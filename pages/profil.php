@@ -9,15 +9,15 @@ session_start();
 @$id = $_SESSION['id'];
 
 if($_SESSION ["autoriser"]!="oui") {
-    header("location:login.php");
+    header("location:/reservation-salles/pages/connexion.php");
     exit();
 }
 
-include("db.php");
+include("../classes/Db.php");
 
 if (isset($_GET['logout'])) {
 
-    header("location: logout.php");
+    header("location: /reservation-salles/pages/logout.php");
 }
 
 if(isset($changelogin)){
@@ -41,7 +41,7 @@ if(isset($changelogin)){
             $ins=$pdo->prepare("UPDATE utilisateurs SET login='$login' WHERE id='$id'");
             $ins->execute(array($login));
             echo ("<div class= messagegreen> modification réussie ! La page va s'actualiser.</div>");
-            header("Refresh:2; url=profil.php");
+            header("Refresh:2; url=/reservation-salles/pages/profil.php");
 
         }
     }
@@ -58,7 +58,7 @@ if(isset($changepassword)){
         echo ("<div class = messagered> Un ou plusieurs champs sont vides. Veillez les remplir. </div>");
     }
 
-  /*   else {
+    else {
 
         $req=$pdo->prepare("SELECT ID FROM utilisateurs WHERE login=? limit 1");
         $req->setFetchMode(PDO::FETCH_ASSOC);
@@ -66,25 +66,26 @@ if(isset($changepassword)){
         $tab=$req->fetchAll();
         if(count($tab) > 0){
             echo("<div class= messagered>Login existe déjâ !</div>");
-    } */
+    }
+
     else{
             // $_SESSION['login'] = $login;
             @$password= md5($_POST["password"]);
             $ins=$pdo->prepare("UPDATE utilisateurs SET password='$password' WHERE id='$id'");
             $ins->execute(array(md5($password)));
             echo ("<div class= messagegreen> modification réussie ! Vous allez être redirigé vers la page de connexion.</div>");
-            header("Refresh:2; url=profil.php");
+            header("Refresh:2; url=/reservation-salles/pages/profil.php");
 
         }
     }
-
+}
     
 ?>
 
 <?php
 
 if(isset($_SESSION['login'])){
-    include ('loggedbar.php');
+    include ('includes/loggedbar.php');
     }
 
 ?>
@@ -95,15 +96,12 @@ if(isset($_SESSION['login'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "style.css" />
+    <link rel="stylesheet" href = "../style.css" />
     <title>Profil</title>
 </head>
 <body>
 <main>
 
-<form method="GET" action = "#">
-<input type = "submit" name = "logout" value = "Se déconnecter" />
-</form>
 
 <div class = logintitle>
 <span>
@@ -138,7 +136,7 @@ Modification des identifiants de votre profil :
 
 <footer>
 <?php
-include('footer.html');
+include('includes/footer.html');
 ?>
 </footer>
 

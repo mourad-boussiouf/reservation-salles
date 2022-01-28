@@ -11,7 +11,7 @@ class User_connect
     { 
         $bdd = new Bdd(); 
         $pdo = $bdd->connectDb(); 
-        //$connexion = $this->db->connectDb();
+
         $q = $pdo->prepare("SELECT * FROM utilisateurs WHERE login = :login");
         $q->bindparam(':login', $login, PDO::PARAM_STR);
         $q->execute();
@@ -32,7 +32,7 @@ class User_connect
              
                 ];
                 
-                header('location:../pages/profil.php');
+                header('location:/reservation-salles/pages/profil.php');
                 return $_SESSION['utilisateur'];
             } else {
                 echo "Le login ou le mot de passe est erroné.";
@@ -49,15 +49,15 @@ class User_connect
         
     }
 }
-// function BDD(){
+/* /* // function BDD(){
 //     $bdd = NEW PDO('mysql:dbname=reservationsalles;host=127.0.0.1', 'root','');
 //     //if(!isset($_SESSION))
 //     //{
 //         //session_start();
 //     //}
 //     return $bdd;
-// }
-
+// } */
+ 
 
 
 ?>

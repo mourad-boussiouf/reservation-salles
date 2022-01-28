@@ -1,6 +1,6 @@
 <?php
 //session_start();
-require_once('DB.php');
+require_once('Db.php');
 require('User.php');
 
 class User{
@@ -31,7 +31,7 @@ class User{
         if(isset($_POST['connect'])){
             $login = $_POST['login'];
             $password = $_POST['password'];
-            // secure($login)
+           
             
             if (!empty($login) && (!empty($password))) {
                 $GetAllInfo = $bdd -> prepare("SELECT * FROM utilisateurs WHERE login = :login");
@@ -39,10 +39,9 @@ class User{
                 $GetAllInfo->execute(); 
             
                 $AllUserInfo = $GetAllInfo->fetch(PDO::FETCH_ASSOC);
-                // var_dump($AllUserInfo['password']);
-                // var_dump($password);
+
                     if (!empty($AllUserInfo)) {
-                        //var_dump(password_verify($password, $AllUserInfo['password']));
+                        
                         if (password_verify($password, $AllUserInfo['password'])) {
                             $_SESSION['connected'] == true; 
                             $_SESSION['utilisateur'] = $AllUserInfo['login']; 
@@ -65,7 +64,7 @@ class User{
         
 
 public function register($login,$password,$confirmPW){
-    // secure($login);
+    
 
     if (isset($_POST["register"])){   
 
@@ -88,7 +87,7 @@ public function register($login,$password,$confirmPW){
 
             if($password == $confirmPW){
 
-                echo"coucou4"; // else "Les mots de passe ne correspondent pas"
+                echo"coucou4"; 
                 $bdd = new Bdd(); 
                 $pdo = $bdd->connectDb();
                 $checklogin = $pdo->prepare("SELECT login FROM utilisateurs WHERE login = :login");

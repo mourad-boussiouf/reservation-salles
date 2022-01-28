@@ -13,7 +13,6 @@
 <header>
 
 <?php
-
 session_start();
 
 if(!isset($_SESSION['login'])){
@@ -25,21 +24,21 @@ include('pages/includes/loggedbar.php');
 }
 
 ?>
-
 </header>
 
 
 <div class = indexbanner>
 <div class = index1>
-<h1> Réservez votre salle !<h1>
+<h1> Réservez votre salle de co-working ! <h1>
 </div>
+<br>
+<br>
+<br>
 <br>
 <br>
 <div class = index2>
-<a href="pages/planning.php"> &nbsp &nbsp  Consulter le planning</a>
+<a href="pages/inscription.php"> &nbsp &nbsp  Créer un compte </a>
 </div>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -48,14 +47,10 @@ include('pages/includes/loggedbar.php');
 <br>
 <br>
 <br></div>
-
+</body>
 <footer>
 <?php
 include('pages/includes/footer.html');
 ?>
 </footer>
-
-
-</body>
-
 </html>

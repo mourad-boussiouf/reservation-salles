@@ -1,6 +1,10 @@
-* {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
-    }
+*{
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+margin-top: 0;
+margin-left: 0;
+margin-right: 0;
+
+}
     
     .messagegreen {
     background-color: green;
@@ -8,6 +12,10 @@
     top:0;
     width:100%;
     z-index:100;
+    color: white;
+    font-size: 1.3em;
+    display: flex; 
+    justify-content: center;
     }
     
     .messagered {
@@ -28,46 +36,7 @@
         font-size: 1.7em;
     }
     
-    /* Style de la barre de connexion */
-    .topnav {
-        background-color: rgb(143, 64, 64);
-        overflow: hidden;
-        position: relative;
-      }
-      
-      .topnav #menuprofil {
-        display: none;
-      }
-      
-      .topnav a {
-        color: white;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-        display: block;
-      }
-      
-      .topnav a.icon {
-        background: black;
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-      
-      .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-      
-      .active {
-        background-color: rgb(255, 0, 64);
-        color: white;
-      }
-    
-      .topnav #modifyprofilmenu {
-        display: none;
-      }
+
     
     /* header style */
     
@@ -76,7 +45,7 @@
       margin-left: -400px;
       display: flex;
       justify-content: space-evenly;
-      background-color: rgb(255, 0, 64);
+      background-color: rgb(40, 60, 95);
       color: white;
       text-decoration: none;
       border-radius: 3px;
@@ -94,30 +63,34 @@
     color: white;
     font-size: 20px;
     text-shadow: 0.5px 0.5px 1px rgb(133, 133, 133);
-    border-radius: 1.8px;
-    }
+border-radius: 1.8px;
+}
     
-    .headermenu a:hover {
-    background-color: white;
-    color: red;
-    }
+.headermenu a:hover {
+background-color: white;
+color: rgb(40, 60, 95);
+}
     
-    .linksmenu {
-      text-align: center;
-      padding: 2px;
-    }
+.linksmenu {
+text-align: center;
+padding: 2px;
+}
+
+/* Index */
+
+.indexbanner {
+background: url("image/whiteoffice.jpg");
+background-size: 1920px 1250px;
+height: 925px;
+text-shadow: 1px 1px 2px rgba(71, 71, 71, 0.774);
+}
     
-    .indexbanner {
-      background: url("image/ouiouiamis2.jpg");
-      height: 925px;
-      text-shadow: 1px 1px 2px rgba(71, 71, 71, 0.774);
-    }
     
-    .index1 {
-      padding-top: 19px;
-      display: flex;
-      justify-content: center;
-    }
+.index1 {
+padding-top: 19px;
+display: flex;
+justify-content: center;
+}
     
     .index2 {
       text-decoration: none;
@@ -125,6 +98,7 @@
       padding-top: 65px;
       display: flex;
       justify-content: center;
+      height: 5.9%;
     }
     
     .index2 a {
@@ -132,7 +106,8 @@
       background-color: white;
       border-radius: 10px;
       color: black;
-      width: 390px;
+      width: 313px;
+      background-color: cornflowerblue;
     }
     
     .index2 a:hover {
@@ -158,7 +133,7 @@
     
     .loginform a {
     text-decoration: none;
-    color: rgba(207, 0, 0, 0.897);
+    color: rgb(40, 60, 95);
     }
     
     .loginform a:hover {
@@ -168,7 +143,7 @@
     .loginform input {
       width: 150%;
       height: 36px;
-      background-color: rgba(255, 0, 0, 0.267);
+      background-color: cornflowerblue;
        }
     
     .connectbutton {
@@ -176,7 +151,8 @@
      }
     
      .connectbutton input {
-      background-color: rgba(255, 22, 22, 0.733);
+      background-color: rgb(40, 60, 95);
+      color: whitesmoke;
     }
      
     /* formulaire inscription*/
@@ -207,7 +183,7 @@
     
     .alreadyregister a {
     text-decoration: none;
-    color: rgba(207, 0, 0, 0.897);
+    color: rgb(54, 80, 124);
     }
     
     .alreadyregister a:hover {
@@ -217,7 +193,7 @@
     .registerform input {
     width: 100%;
     height: 36px;
-    background-color: rgba(255, 0, 0, 0.267);
+    background-color: cornflowerblue
     }
     
     .registerbutton {
@@ -225,10 +201,10 @@
       }
          
     .registerbutton input {
-      background-color: rgba(255, 22, 22, 0.733);
+      background-color: rgb(40, 60, 95);
+      color :whitesmoke;
       }
     
-     /*commentaires livre d'or */
     
     .infocomm {
     display: flex;
@@ -248,22 +224,6 @@
     .clear{
     clear: both; 
     height: 25px; 
-    }
-    
-    .livreorbutton a {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 24px;
-    padding-top: 75px;
-    color: rgb(148, 0, 0);;
-    }
-    
-    .livreorbutton img {
-      position: relative;
-      top: 60px; left: 50px;
-      top: -52px;
-      left: 16px;
     }
     
     /*page modification profil */
@@ -287,113 +247,271 @@
     .modifylogin input {
         width: 100%;
         height: 36px;
-        background-color: rgba(255, 0, 0, 0.267);
+        background-color: cornflowerblue
         }
         
-    .modifypassword input  {
-          width: 100%;
-          height: 36px;
-          background-color: rgba(255, 0, 0, 0.267);
-          }
+.modifypassword input  {
+width: 100%;
+ height: 36px;
+ background-color: cornflowerblue
+ }
           
       
     
     
-      .modifypasswordbutton input {
-        background-color: rgba(255, 22, 22, 0.733);
-        }
+.modifypasswordbutton input {
+background-color: rgb(40, 60, 95);
+color: whitesmoke;
+}
     
-        .modifyloginbutton input {
-          background-color: rgba(255, 22, 22, 0.733);
-          }
-    .modifypasswordbutton {
-    padding-top: 18px;
-    }
-    
-    .modifyloginbutton {
-      padding-top: 17px;
-      }
-    
-    
-    .modifyform {
-    padding-top: 20px;
-    }
+.modifyloginbutton input {
+background-color: rgb(40, 60, 95);color: whitesmoke;
+}
+
+.modifypasswordbutton {
+padding-top: 18px;
+}
+
+.modifyloginbutton {
+padding-top: 17px;
+}
+
+
+.modifyform {
+padding-top: 20px;
+}
         
       
-    /*page envoi de commentaire livre d'or */
-    .postcomment {
-    display: flex;
-    justify-content: center;
-    padding-top: 70px;
-    }
     
-    .commentbox input{
-      width: 430px;
-      height: 110px;
-      background-color: rgba(255, 0, 0, 0.267);
-    }
-    
-    .commentbutton {
-    padding-top: 15px;
-    display: flex;
-    justify-content: center;
-    height: 30px;
-    }
-    
-    .commentbutton input {
-    width: 250px;
-    background-color: rgba(255, 22, 22, 0.733);
-    }
-    
-    /* style du footer */
-    footer{
-      position:fixed;
-      bottom:0;
-      width:100%;
-      height:24px;  
-      background:rgba(255, 22, 22, 0.733);
-      color: white;
-      font-size: 18px;
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-    }
-    
-    footer a:link  {
-    text-decoration: none;
-    
-    }
-    
-    footer a:visited {
-    text-decoration: none;
-    color: white;
-    }
-    
-    footer a:hover {
-    background-color: white;
-    color: rgba(255, 22, 22, 0.973);
-    height: 80px;
-    }
-    
-    footer a {
-    margin-bottom: 2px;
-    height: 200px;
-    }
-    
-    .footerlivreor{
-    display: flex;
-    justify-content: center;
-    }
+/* style du footer */
 
+footer{
+position:absolute;
+bottom:0;
+width:100%;
+height: 24px;
+background: rgb(40, 60, 95);
+color: whitesmoke;
+font-size: 18px;
+bottom: 0px;
+left: 0px;
+right: 0px;
+}
+    
+footer a:link  {
+text-decoration: none;
+}
+    
+footer a:visited {
+text-decoration: none;
+color: white;
+}
+    
+footer a:hover {
+background-color: white;
+color: cornflowerblue;
+height: 80px;
+}
+    
+footer a {
+color: white;
+margin-bottom: 2px;
+height: 200px;
+}
 
-     /*page planning*/
+.footerlivreor{
+display: flex;
+justify-content: center;
+}
+/*page planning*/
 
-    table {
-      border-collapse: collapse;
-      background: white;
-      color: black;
+table {
+border-collapse: collapse;
+background: white;
+color: black;
+}
+
+th, td { 
+font-weight: bold;
+}
+/*page reservation form*/
+
+*
+.reservationform {
+display: flex;
+justify-content: center;
+flex-direction: column;
+background-color: cornflowerblue;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+border-radius: 15px;
+padding-left: 30px;
+padding-right: 18px;
+margin-left: 10px;
+height: 80%;
+width: 410px;
+margin-left: 35%;
+}
+
+.container h1 {
+display: flex;
+justify-content: center;
+margin-left: -40px;
+text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.setreservation {
+display: flex;
+justify-content: center;
+}
+
+/* boutons planning */
+.consultbooking {
+background-color: yellow;
+margin-right: 2rem;
+border-radius: 9.5px;
+height: 110%;
+width: 47%;
+}
+
+.consultbooking   a {
+text-decoration: none;
+display: flex;
+justify-content: center;
+color: black;
+}
+
+.consultbooking a:hover {
+background-color: rgb(190, 190, 0);
+border-radius: 9px;
+color: rgb(17, 17, 17);
+}
+  
+
+.addbooking {
+font-size: 26px;;
+display: flex;
+justify-content: center;
+background-color: yellow;
+border-radius: 9.5px;
+height: 25%;
+width: 100%;
+margin-top: -20px;
+padding-top: 10px;
+border-top-left-radius: 0%;
+border-top-right-radius: 0%;
+}
+
+.addbooking a {
+text-decoration: none;
+display: flex;
+justify-content: center;
+color: black;
+width: 100%;
+margin-top: -10px;
+border-top-left-radius: 0%;
+border-top-right-radius: 0%;
+}
+
+.addbooking a:hover {
+background-color: rgb(190, 190, 0);
+border-radius: 9px;
+color: rgb(17, 17, 17);
+border-top-left-radius: 0%;
+border-top-right-radius: 0%;
+}
+
+.booking {
+display: flex;
+flex-direction: row;
+font-size: 1.5rem;
+}
+
+body {
+padding-bottom: 24px;
+}
+
+ /*commentaires livre d'or */
+    
+ .infocomm {
+  display: flex;
+  justify-content: center;
   }
-  th, td { 
-      font-weight: bold;
+  
+  .infocomm p {
+  border-style: solid;
+  }
+  
+  .contentcomm {
+  display: flex;
+  justify-content: center; 
+  font-family: cursive;
+  }
+  
+  .clear{
+  clear: both; 
+  height: 25px; 
+  }
+  
+  .livreorbutton a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  padding-top: 75px;
+  color: rgb(148, 0, 0);;
+  }
+  
+  .livreorbutton img {
+    position: relative;
+    top: 60px; left: 50px;
+    top: -52px;
+    left: 16px;
   }
 
+
+ /* Style de la barre de connexion */
+
+ .topnav {
+  background-color: rgb(59, 88, 138);
+  overflow: hidden;
+  position: relative;
+}
+
+.topnav #menuprofil {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: rgb(40, 60, 95);
+  color: white;
+}
+
+.topnav #modifyprofilmenu {
+  display: none;
+}
+
+
+article {
+  overflow-x: hidden;
+}

@@ -10,13 +10,14 @@
     
 
 <div class="topnav">
+
   <a href="#home" class="active"> <?php  if (isset($_SESSION['login'])) {
       echo 'Connecté en tant que '.$_SESSION['login']; } ?> </a>
 
   <div id="menuprofil">
-  <a href = "pages/planning.php"> Planning des réservations </a>
-    <a href="pages/profil.php">Modifier mon profil</a>
-    <a  href = "pages/logout.php?logout='1'" >Déconnexion</a>
+  <a href = "/reservation-salles/pages/planning.php"> Planning des réservations </a>
+    <a href="/reservation-salles/pages/profil.php">Modifier mon profil</a>
+    <a  href = "/reservation-salles/pages/logout.php" >Déconnexion</a>
   </div>
 
 
@@ -34,5 +35,4 @@ function myFunction() {
   }
 }
 </script>
-
 </html>

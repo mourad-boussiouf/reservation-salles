@@ -1,3 +1,4 @@
+<article>
 <?php
 @$login=$_POST['login'];
 @$password=$_POST['password'];
@@ -10,7 +11,7 @@ if(isset($valider)){
     if(empty($password)) $message="<li><div class= messagered> Vous devez entrer un mot de passe</div></li>";
     if($password != $passwordconfirm) $message="<li><div class= messagered> Les mots de passe doivent être identiques</div></li>";
     if(empty($message)) {
-        include("db.php");
+        include("../classes/Db.php");
         $req=$pdo->prepare("SELECT ID FROM utilisateurs WHERE login=? limit 1");
         $req->setFetchMode(PDO::FETCH_ASSOC);
         $req->execute(array($login));
@@ -26,25 +27,21 @@ if(isset($valider)){
     }
 }
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href = "style.css" />
+    <link rel="stylesheet" href = "../style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
 </head>
 
 <body>
-
 <header>
 <?php
-include('header.html');
+include('includes/header.html');
 ?>
 </header>
 
@@ -73,8 +70,10 @@ include('header.html');
 
 <footer>
 <?php
-include('footer.html');
+include('includes/footer.html');
 ?>
 </footer>
 </body>
 </html>
+
+</article>

@@ -6,9 +6,9 @@ class Bdd
     private $password;
     private $database;
     public $db;
-    /**
-     * 
-     */
+
+
+    
     public function __construct()
     {   
     $this->host = "localhost";
@@ -35,7 +35,12 @@ class Bdd
     }
 }
 
-
+try{
+    $pdo=new PDO ("mysql:host=localhost;dbname=reservationsalles", "root", "");
+}
+catch(PDOException $e) {
+    echo $e->getmessage();
+}
 
 
 ?>

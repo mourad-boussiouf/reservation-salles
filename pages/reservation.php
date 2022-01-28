@@ -1,4 +1,5 @@
 <?php 
+
  session_start();
 // CHEMINS
 $path_index="../index.php";
@@ -9,17 +10,18 @@ $path_planning="planning.php";
 $path_booking="";
 $path_BookingForm="reservation-form.php";
 // STYLESHEET HEADER 
-require_once('header.php');
+require_once('includes/header.php');
 // REQUIRE CONFIG 
-require_once('classes/fonctions.php');
-require_once('classes/classCrenneau.php');
-require_once('classes/classWeek.php');
-require_once('classes/User.php');
+require_once('../classes/fonctions.php');
+require_once('../classes/classCrenneau.php');
+require_once('../classes/classWeek.php');
+require_once('../classes/User.php');
+require_once('../classes/Db.php');
 
 if (isset($_SESSION['id'])) {
     // RECUP INFO FROM DB
     $event = new Creneaux;
-    $eventInfos = $event->getEventbyId($_SESSION['id']);
+    $eventInfos = $event->getEventbyId($_GET["id"]);
 
     // FORMAT DATE & TIME
     $timestampStart = strtotime($eventInfos['debut']);
@@ -28,22 +30,32 @@ if (isset($_SESSION['id'])) {
 }
 
 else {
-    $_SESSION['error'] = "Cette page n'a pas été accédé par le planning";
+    $_SESSION['error'] = "<div class = messagered>Cette page n'a pas été accédé par le planning</div>";
+}
+
+
+if (!isset($_SESSION['id'])) {
+header("location:/reservation-salles/index.php");
 }
 ?>
 <!-- CSS -->
 <link rel="stylesheet" href="../CSS/reservation.css">
+<link rel="stylesheet" href="../style.css">
 
 <main>
-<h1>Réservation</h1>
+
+
+<h1> Réservation n° <?php if (isset($_SESSION['id'])) { echo($_GET["id"]);  }?>  </h1>
 
 <?php
+
+
     if (isset($_SESSION['error'])):
         echo '<p class="error">' . $_SESSION['error'] . '</p>';
         unset($_SESSION['error']);
     else :
 ?>
-
+  
     <section id="booking">
 
     <article class="Pbooking">
@@ -70,8 +82,7 @@ else {
 
 
 <?php
-$path_img_footer1 = '../images/logobbYellow.png';
-$path_img_footer2 ='../images/logotomate.png';
-$path_footer='../CSS/footer.css';
- require_once('footer.html'); 
+
+
+ require_once('includes/footer.html'); 
 ?>

@@ -9,34 +9,43 @@ session_start();
     $path_booking="reservation.php";
     $path_BookingForm="reservation-form.php";
     // HEADER
-    require_once('header.php');
+    
+
+if(isset($_SESSION['login'])){
+    include ('includes/loggedbar.php');
+    }
+
+    if(!isset($_SESSION['login'])){
+    require_once('includes/header.html');
+    }
 
 
-    require_once('classes/Db.php');
-    require_once('classes/fonctions.php');
-    require_once('classes/classCrenneau.php');
+    require_once('../classes/DB.php');
+    require_once('../classes/fonctions.php');
+    require_once('../classes/classCrenneau.php');
     $db = new PDO ('mysql:host=localhost;dbname=reservationsalles','root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); 
     $title = 'Formulaire de réservation';
 
     if(isset($_POST['cancel'])){
-        header('Location: deconnexion.php');
+        header('Location: logout.php');
         return;
     }
     
     if(isset($_POST['submit'])){
 
         if(empty($_POST['title'])){ echo 'coucou1';
-            $_SESSION['error'] = 'Vous devez entrer un titre pour votre réservation.';
-            header('Location: reservation-form.php');
+            $_SESSION['error'] = "Votre réservation n'est pas conforme";
+            header('Location:reservation-salle/pages/reservation-form.php');
             return;
         }
-        elseif (strlen($_POST['title'] > 255)){ echo 'coucou2';
-            $_SESSION['error'] = 'Vous devez choisir un jour pour votre réservation.';
-            header('Location: reservation-form.php');
-            return;
+        if (strlen($_POST['title']) > 20){ 
+            $message="<div class = messagered> Le titre de la réservation ne peut pas dépasser 20 caractères !<br> Vous allez être rediriger vers le formulaire</div>";
+            echo ($message);
+            header('refresh: 5; URL=reservation-form.php');
+            
         }
         elseif (empty($_POST['startTime'])) { echo 'coucou3';
-            $_SESSION['error'] = 'Vous devez choisir une heure de début pour votre réservation.';
+            echo 'Vous devez choisir une heure de début pour votre réservation.';
             header('Location: reservation-form.php');
             return;
         }
@@ -55,7 +64,8 @@ session_start();
             header('Location: reservation-form.php');
             return;
         }
-        //LA
+     
+        
         else{
             $dateArray = explode('-', $_POST['date']);
             
@@ -102,7 +112,7 @@ session_start();
                     header('Location: reservation-form.php');
                     return;
             }
-            elseif ($resDateTime <= $timestampNow){
+            elseif ($resDateTime < $timestampNow){
                 $_SESSION['error'] = 'Vous ne pouvez pas antidater votre réservation';
                 header('Location: reservation-form.php');
                 return;
@@ -145,9 +155,13 @@ session_start();
                         header('Location: reservation-form.php');
                         return;
                     }
+                    
                 }
+                
             }
-
+        
+        
+                
             $insert = "INSERT INTO reservations 
             (titre, description, debut, fin, id_utilisateur) 
             VALUES (:title, :description, :debut, :fin, :id_user)";
@@ -161,17 +175,20 @@ session_start();
                 ':fin'=>$dateEnd,
                 ':id_user'=> $_SESSION['id']
             ]);
+            echo '<div class = messagegreen> Réservation enrengistrée </div>';
+            
 
-            $_SESSION['succes'] = "Votre reservation a reussi.";
 
+            if (isset($_POST['submit']) && empty($_SESSION['error']))  {
+                $_SESSION['succes'] = "Votre reservation a reussi.";
             }
-
         }
-       
+        }
     }
 ?>
 
     <!DOCTYPE html>
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../CSS/reservation-form.css">
     <html lang="fr">
         <body class="container">
@@ -179,23 +196,31 @@ session_start();
                 <h1>Formulaire de réservation de salle</h1>
                 <?php
                     if(isset($_SESSION['utilisateur'])){
-                        echo " <div id='hello_profil'> Bonjour ". strtoupper($_SESSION['utilisateur']) ." reservez votre salle et bouclier ici. </div>";
+                        echo " <div id='hello_profil'> Bonjour ". strtoupper($_SESSION['utilisateur']) ." reservez votre salle ici. </div>";
                     }
                     if (isset($_SESSION['error'])) {
-                        echo '<p class="error">' . $_SESSION['error'] . '</p>';
+                        echo '<p class="error"><div class = messagered>' . $_SESSION['error'] . '</div></p>';
                         unset($_SESSION['error']);
                     }
-                    elseif ( isset($_SESSION['success']) ) {
-                        echo '<p class="success">' . $_SESSION['success'] . '</p>';
-                        unset($_SESSION['success']);
+                    elseif ( isset($_SESSION['succes']) && strlen($_POST["title"])<20) {
+                        echo '<div class = messagegreen>' . 'La réservation a été enrengistrée. <br> Vous allez être redirigé vers le planning '. '</div>';
+                        header('refresh: 3; URL=/reservation-salles/pages/planning.php');
+                        unset($_SESSION['succes']);
+                        
+                    if (strlen($_POST["title"]) > 20) {
+                    echo '<div class = messagered> Le titre de la réservation est trop long </div>';
                     }
-                    if (!isset($_SESSION['utilisateur']) || !$_SESSION['utilisateur']) :
+                    
+                    }
+                    if (!isset($_SESSION['id']) || !$_SESSION['id']) :
                         echo '<p class="error">Cette partie du site où vous pourrez réaliser une réservation de salle, ne sera visible qu\'une fois connecté</p>';
                     else :
                 ?>
+                <div class = reservationform>
                 <article id="BookingRules">
                 <p>Pour pouvoir faire une réservation, vous devez respecter quelques consignes: </p>
                 <ul>
+                    <li>Le titre de la réservation ne doit pas dépasser 20 caractères</li>
                     <li>Vous ne pouvez pas antidater une réservation, ni reverver le jour meme,</li>
                     <li>elles sont ouvertes du Lundi au Vendredi inclus, </li>
                     <li>elles doivent débuter entre 08:00 et 18:00 inclus</li>
@@ -206,6 +231,7 @@ session_start();
                     Si vous ne respectez pas ces règles, votre réservation ne pourra pas être validée et un message vous indiquera quelle correction devra être apportée.
                 </p>
                 </article>
+                <div class = setreservation>
                 <article id="bigbox">
                 <form method="POST">
                     <label for="title"> Titre:</label>
@@ -228,6 +254,8 @@ session_start();
                     <input type="submit" class="BookingInput" name='submit' value="Valider">
                 </form>
                 </article>
+                    </div>
+                    </div>
                 <?php
                     endif;
                 ?>
@@ -240,7 +268,7 @@ session_start();
         ?>
         <footer>
         <?php
-        require_once('footer.html');
+        require_once('includes/footer.html');
         ?>
         </footer>
         </body>

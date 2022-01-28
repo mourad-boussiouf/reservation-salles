@@ -1,15 +1,10 @@
-<?php 
+<?php
+
 session_start();
-
-if(isset($_SESSION['login'])){
-    header("location:/reservation-salles/index.php");
-}
-
-// REQUIRE 
-require_once("../classes/Db.php");
-require_once('../classes/fonctions.php');
-$_SESSION['User']=new User();
-$_SESSION['User']->connect();
+@$login=$_POST["login"];
+@$password=$_POST["password"];
+@$valider=$_POST["valider"];
+$message = "";
 // CHEMINS
 $path_index="../index.php";
 $path_inscription="inscription.php";
@@ -19,14 +14,10 @@ $path_planning="planning.php";
 $path_booking="reservation.php";
 $path_BookingForm="reservation-form.php";
 
-require_once('includes/header.php');
-@$login=$_POST["login"];
-@$password=$_POST["password"];
-@$valider=$_POST["valider"];
-$message = "";
 
 
 if(isset($valider)) {
+    include("db.php");
     $res=$pdo->prepare ("SELECT * from utilisateurs where login = ? and password = ? limit 1");
     $res->setFetchMode(PDO::FETCH_ASSOC);
     $res->execute(array($login, md5($password)));
@@ -76,9 +67,8 @@ include('includes/header.html');
 </main>
 <footer>
 <?php
-include('includes/footer.html');
+include('pages/includes/footer.html');
 ?>
 </footer>
-
 </body>
 </html>
