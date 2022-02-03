@@ -15,7 +15,7 @@ class Creneaux {
         $sql = "SELECT reservations.id, reservations.titre, reservations.debut, reservations.fin, utilisateurs.login 
         FROM reservations JOIN utilisateurs ON utilisateurs.id = reservations.id_utilisateur 
         WHERE reservations.debut 
-        BETWEEN '{$start->format('Y-m-d 08:00:00')}' AND '{$end->format('Y-m-d 19:00:00')}'";
+        BETWEEN '{$start->format('Y--d 08:00:00')}' AND '{$end->format('Y-m-d 19:00:00')}'";
         $stmt = $this->pdo->query($sql);
         $results = $stmt->fetchAll();
         return $results;

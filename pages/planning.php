@@ -35,16 +35,16 @@ $currentEvent = [];
 
 $actWeek = new Week($_GET['day'] ?? null, $_GET['month'] ?? null, $_GET['year'] ?? null);
 
-$startingDayWeek = $actWeek->getFirstday();
+$tempDate = new DateTime ($actWeek->currentDate);
+$end =(clone $tempDate)->modify('+ 5 days - 1 second'); 
 
-$end =(clone $startingDayWeek)->modify('+ 5 days - 1 second'); 
- 
-$events = $eventsFromDB -> getEventsBetweenByDayTime($startingDayWeek, $end); 
+$events = $eventsFromDB -> getEventsBetweenByDayTime($tempDate, $end); 
 
 foreach ($events as $k => $event){
-
     $tableCell[$event['case']] = $event['length']; 
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ foreach ($events as $k => $event){
     
         <a href="planning.php?day=<?= $actWeek->previousWeek()->day;?>&month=<?= $actWeek->previousWeek()->month; ?> &year=<?= $actWeek->previousWeek()->year; ?>"></a>
 
-        <h1>Planning: Semaine actuelle, Janvier <?= $actWeek->ToString(); ?></h1>
+        <h1>Planning: Semaine actuelle, Février <?= $actWeek->ToString(); ?></h1>
 
         <a href="planning.php?day=<?= $actWeek->nextWeek()->day;?>&month=<?= $actWeek->nextWeek()->month; ?> &year=<?= $actWeek->nextWeek()->year; ?>">  </a>
     </div>
@@ -99,8 +99,14 @@ foreach ($events as $k => $event){
             // ON SET LES JOURS
             // si y==0 les heures sont réinitialisés et on passe au jour suivant 
             elseif ($y == 0 && $x > 0) {
-                    $daysNumber = $actWeek->mondayDate + $x - 1;
-                    echo '<th>' . $actWeek->getDays ($x -1) . ' ' . $daysNumber . '</th>';
+                
+                $daysNumber = $actWeek->mondayDate + $x - 1;
+                if ($daysNumber > 31){
+
+                        $daysNumber = $actWeek->mondayDate + $x - 32;
+                    
+                }
+                 echo '<th>' . $actWeek->getDays ($x -1) . ' ' . $daysNumber . '</th>';
             }
 
 
@@ -125,16 +131,18 @@ foreach ($events as $k => $event){
                     }
                 } 
                 
-                foreach ($tableCell as $key => $value) {
-                    if ($coordinate === $key) {
-                        $cellLength = $value; 
-                    }
-                }
+                // foreach ($tableCell as $key => $value) {
+                //     if ($coordinate === $key) {
+                //         $cellLength = $value; 
+                //     }
+                // }
                 
                 foreach ($events as $k => $event) {
+
                     if ($coordinate == $event['case']) {
                         $currentEvent = $event;
                     }
+                
                 } 
                 if (isset($cellLength) && $cellLength !== FALSE) {
                     //fusion des cellules en fonction du temps de l'event 
@@ -172,6 +180,7 @@ foreach ($events as $k => $event){
     
     echo '</tr> ', "\n"; 
     }
+    
     ?>
 
     </table>
@@ -202,8 +211,8 @@ $test->getEventById(1);
 </body>
 </html>
 
-<link rel="stylesheet" href="CSS/planning.css">
-<link rel="stylesheet" href="/reservation-salles/style.css">
+    <link rel="stylesheet" href="CSS/planning.css">
+    <link rel="stylesheet" href="/reservation-salles/style.css">
 
 <?php
 $path_img_footer1 = '../images/logobbYellow.png';

@@ -3,12 +3,12 @@ class Week{
     public $days =  ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
     public $months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
-    //bool
+    
     public $currentIsMonday;
-    //string
+    
     public $currentDayString;
     public $monthstring;
-    //int
+    
     public $currentDay;
     public $currentDate;
     public $mondayDate;
@@ -30,7 +30,7 @@ public function __construct(?int $day = null, ?int $month = null, ?int $year = n
     $makeDate = new DateTimeImmutable($dateString);
     $this->currentDay = intval($makeDate->format('N'));
 
-    //check si c'est lundi
+
     if($this->currentDay === 1){
         $this->mondayDate = $day;
         $this->currentIsMonday = TRUE; 
@@ -40,7 +40,7 @@ public function __construct(?int $day = null, ?int $month = null, ?int $year = n
         $this->mondayDate = intval($getMondayDate->format('j'));
         $this->currentIsMonday = FALSE;
     }
-// Set attribute
+
     $this->currentDate = $dateString;
     $this->day = $day;
     $this->month = $month;
@@ -85,9 +85,12 @@ public function __construct(?int $day = null, ?int $month = null, ?int $year = n
         return new Week($day, $month, $year);
     }
 
-        public function getFirstDay(): DateTime {
+        public function getFirstDay(){
             return new DateTime("{$this->year}-{$this->month}-{$this->mondayDate}");
-            var_dump(new DateTime);
+            
+            
+        
+            
         }
 }
 

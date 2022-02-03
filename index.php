@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
 </head>
-<body>
 
+<body>
+<main>
 <header>
 
 <?php
@@ -39,18 +40,14 @@ include('pages/includes/loggedbar.php');
 <div class = index2>
 <a href="pages/inscription.php"> &nbsp &nbsp  Créer un compte </a>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br></div>
-</body>
+</div>
+
+</main>
 <footer>
 <?php
 include('pages/includes/footer.html');
 ?>
 </footer>
+
+</body>
 </html>
